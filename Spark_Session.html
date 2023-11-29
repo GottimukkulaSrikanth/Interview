@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatted Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        /* Style for the list items */
+        ul, ol {
+            margin-top: 0; /* Remove default margin for lists */
+            padding-left: 20px; /* Add left padding to the lists */
+            line-height: 1; /* Set the line height for the lists */
+            font-family: "Times New Roman", serif; /* Set the font for the lists */
+        }
+
+        /* Style for paragraphs */
+        p {
+            line-height: 1; /* Set the line height for paragraphs */
+        }
+
+        /* Style for section headers */
+        section header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        section h2 {
+            font-size: 1.2em; /* Adjust the font size for section headers */
+        }
+        a {
+            display: block; /* Make the links block-level elements */
+            margin-bottom: 15px; /* Add margin between the links */
+            color: #007BFF; /* Link color */
+            text-decoration: none;
+        }
+        li, a {
+            margin-bottom: 15px; /* Add margin after each heading, list item, and link */
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>Spark Session</h1>
+
+<ul>
+    <li>SparkSession is the entry point for reading data and executing operations on a Spark cluster. It provides a single point of entry to interact with Spark functionality and allows the programmer to configure Spark, create DataFrames, and perform various operations.</li> 
+    
+    <!-- Multiline code block using the <pre> tag -->
+<pre>
+    <code>
+        from pyspark.sql import SparkSession
+        # Create a Spark session
+            spark = SparkSession.builder \
+            .appName("YourAppName") \
+            .config("spark.some.config.option", "some-value") \
+            .getOrCreate()
+    </code>
+</pre>
+<p>
+    In this example:<br>
+    <strong>appName: </strong>Specifies the name of your application.<br>
+    <strong>config: </strong>Allows you to set various Spark configurations.<br>
+        
+</p>
+<p>You can customize the configuration options based on your requirements.<br>
+    Executing Operations:<br>
+    Once you have a SparkSession, you can perform various operations, such as reading data, creating DataFrames, and executing transformations and actions.<br>
+<br>
+    Here's a simple example:<br>
+</p>
+        
+<pre>
+    <code>
+        python
+            
+            # Read data from a CSV file and create a DataFrame
+            df = spark.read.csv("/path/to/your/file.csv", header=True, inferSchema=True)
+
+            # Perform transformations (e.g., filtering) and actions (e.g., counting)
+            result = df.filter(df["someColumn"] > 10).groupBy("anotherColumn").count()
+
+            # Show the result
+            result.show()
+     </code>
+</pre>       
+<p>
+    In this example:<br>
+
+            <strong>read.csv: </strong>Reads data from a CSV file and creates a DataFrame.<br>
+            <strong>filter: </strong>Applies a transformation to filter rows.<br>
+            <strong>groupBy and count: </strong>Perform transformations and actions on the DataFrame.<br>
+            <strong>show: </strong>Displays the result.<br>
+</p>
+        
+<p>Overall, the SparkSession simplifies the process of interacting with Spark, consolidating configuration and providing a unified entry point for Spark functionality.<br>
+ Adjust the configuration parameters based on your application's requirements, and use the various methods and APIs available in Spark to process and analyze your data efficiently.
+</p>
+
+
+    </ul>
+
+<!-- Button to go back to the Hive Main page -->
+<a href="Apache_Spark.html">Go back to SPARK Main Page</a>
+
+
+<!-- Button to go back to the main index page -->
+<a href="index.html">Go back to Main Page</a>
+
+</body>
+</html>

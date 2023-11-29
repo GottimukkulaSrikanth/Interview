@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatted Content</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        /* Style for the list items */
+        ul, ol {
+            margin-top: 0; /* Remove default margin for lists */
+            padding-left: 20px; /* Add left padding to the lists */
+            line-height: 1; /* Set the line height for the lists */
+            font-family: "Times New Roman", serif; /* Set the font for the lists */
+        }
+
+        /* Style for paragraphs */
+        p {
+            line-height: 1; /* Set the line height for paragraphs */
+        }
+
+        /* Style for section headers */
+        section header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        section h2 {
+            font-size: 1.2em; /* Adjust the font size for section headers */
+        }
+        a {
+            display: block; /* Make the links block-level elements */
+            margin-bottom: 15px; /* Add margin between the links */
+            color: #007BFF; /* Link color */
+            text-decoration: none;
+        }
+        li, a {
+            margin-bottom: 15px; /* Add margin after each heading, list item, and link */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Partitioning_and_Bucketing</h1>
+
+<ul>
+    <li>Both partitioning and bucketing are techniques used to optimize query performance by organizing and structuring data more efficiently.</li> 
+    
+    <li>However, they serve different purposes and have distinct use cases.</li> 
+
+<h2>Partitioning:</h2>
+
+<li>Purpose: Partitioning is a way to divide data into subdirectories or partitions based on the values of one or more columns. 
+Each partition contains a subset of data with the same partition key values.</li>
+
+<li>Use Cases: Partitioning is useful for improving data pruning and reducing the amount of data that needs to be scanned during queries.
+ It's particularly valuable for filtering data on commonly used criteria. For example, you might partition a dataset by date, country, or category.</li>
+
+<li>Query Performance: Partitioning can significantly enhance query performance, especially when your queries often filter data on partition columns. It allows Hive to skip reading entire partitions that are not relevant to the query, leading to faster query execution.</li>
+
+<li>Maintenance:Partitioning can simplify data management and reduce the time required for data loading, as each partition can be managed individually.</li>
+<li>Example: PARTITIONED BY (date STRING, country STRING) would partition data by date and country.</li>
+
+
+
+<h2>Bucketing:</h2>
+
+<li>Purpose: Bucketing involves dividing data files into smaller, equal-sized buckets using a hash function applied to one or more columns. This is done within each partition.</li>
+
+<li>Use Cases: Bucketing is ideal for improving join operations, especially in scenarios where you have large datasets and need to optimize query performance for joins. </li>
+
+<li>It reduces data skew and ensures that similar data falls into the same bucket.</li>
+
+<li>Query Performance: Bucketing speeds up query performance, primarily when you perform equi-joins, as it allows Hive to skip over irrelevant data in each bucket when performing the join.</li>
+
+<li>Maintenance: Bucketing requires extra care during data loading and maintenance. Data must be inserted into buckets according to the hash function, and the number of buckets should be determined with care.</li>
+
+<li>Example: CLUSTERED BY (user_id) INTO 16 BUCKETS would create 16 buckets based on the hash of the user_id column within a partition.</li>
+
+
+    </ul>
+
+<!-- Button to go back to the Hive Main page -->
+<a href="Hive.html">Go back to Hive Main Page</a>
+
+
+<!-- Button to go back to the main index page -->
+<a href="index.html">Go back to Main Page</a>
+
+</body>
+</html>
